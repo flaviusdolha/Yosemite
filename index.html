@@ -10,6 +10,10 @@
 
     <link rel="stylesheet" href="public/styles/index.css" />
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="public/scripts/index.js"></script>
+
     <title>Yosemite | File storage & sharing made simple.</title>
   </head>
   <body>
@@ -29,7 +33,7 @@
         </div>
 
         <div class="col">
-          <div class="register">
+          <div class="register" id="register">
             <h2 class="register-login-h2 colour-dark-blue">Sign up now for free!</h2>
             <form>
               <div class="form-group">
@@ -45,6 +49,21 @@
               </div>
             </form>
           </div>
+
+          <div class="register hide" id="login">
+            <h2 class="register-login-h2 colour-dark-blue">Login into your account.</h2>
+            <form>
+              <div class="form-group">
+                <label for="emailAdress" class="register-login-label">Email adress</label>
+                <input type="email" class="register-login-form form-control" id="registerEmail" aria-describedby="emailHelp" placeholder="johnsmith@email.com"/>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="password" class="register-login-label">Password</label>
+                <input type="password" class="register-login-form form-control" id="registerPassword"/>
+                <button type="button" class="btn btn-primary btn-lg btn-block register-login-button">Login</button>
+                <a href="#"><small id="createAccount" class="form-text text-muted">Don't have an account? Click here to create one for free.</small></a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -54,7 +73,6 @@
     </footer>
 
     <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>

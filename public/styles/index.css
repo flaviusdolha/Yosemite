@@ -62,7 +62,7 @@ body {
   margin: auto;
   padding: 32px;
   background-color: #f6f6f6;
-  height: 100%;;
+  height: 540px;
   width: 80%;
 }
 
@@ -99,10 +99,14 @@ body {
   background-color: #010a43;
 }
 
-#alreadyRegister {
+#alreadyRegister, #createAccount {
   margin-top: 16px;
 }
 
 .footer-copyright {
   margin-left: 70px;
+}
+
+.hide {
+  display: none;
 }
