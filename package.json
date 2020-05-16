@@ -1,0 +1,22 @@
+{
+  "name": "yosemite",
+  "version": "1.0.0",
+  "description": "File storage & sharing made simple.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flaviusdolha/Yosemite.git"
+  },
+  "author": "Flavius Dolha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flaviusdolha/Yosemite/issues"
+  },
+  "homepage": "https://github.com/flaviusdolha/Yosemite#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
