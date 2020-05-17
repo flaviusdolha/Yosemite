@@ -88,6 +88,12 @@ app.post("/upload", upload.single("file"), function(req, res) {
   })();
 });
 
+app.get('/download', function(req, res){
+  const file = __dirname + "/storage/" + req.user.storage + "/" + req.query.filename;
+  console.log(file);
+  res.download(file);
+});
+
 app.post("/delete", function(req, res) {
   if (req.isAuthenticated()) {
     const userStorageFolder = "./storage/" + req.user.storage + "/";

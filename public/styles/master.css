@@ -127,7 +127,7 @@
 .sidebar-info {
   background-color: #010a43;
   position: fixed;
-  width: 20%;
+  width: 24%;
   height: 100%;
   top: 0;
   right: 0;
@@ -215,7 +215,7 @@
 #uploadButton {
   margin-left: auto;
   float: right;
-  margin-right: 22%;
+  margin-right: 26%;
   margin-top: 32px;
 }
 
@@ -239,13 +239,13 @@
 hr {
   margin-top: 32px;
   margin-left: 70px;
-  margin-right: 22%;
+  margin-right: 26%;
   margin-bottom: 0;
 }
 
 .list-group {
   margin-left: 70px;
-  margin-right: 22%;
+  margin-right: 26%;
 }
 
 .list-group-item {
