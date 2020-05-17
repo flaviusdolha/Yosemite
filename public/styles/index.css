@@ -79,7 +79,7 @@ body {
   color: #010a43;
 }
 
-.text-muted {
+.form-text {
   margin-top: 8px;
   font-family: 'Roboto', sans-serif;
   font-size: 0.7rem;
@@ -109,4 +109,12 @@ body {
 
 .hide {
   display: none;
+}
+
+.input-invalid {
+  border-color: red;
+}
+
+.text-invalid {
+  color: red;
 }
