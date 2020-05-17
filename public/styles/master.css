@@ -293,3 +293,10 @@ hr {
 .moreButton:hover {
   background-color: #142850;
 }
+
+.modal-title {
+  color: #010a43;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}

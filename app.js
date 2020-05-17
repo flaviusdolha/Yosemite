@@ -30,6 +30,11 @@ const PORT = 3000;
 mongoose.connect("mongodb://localhost:27017/Yosemite", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
+const shareSchema = new mongoose.Schema ({
+  path: String,
+  author: String,
+});
+
 const userSchema = new mongoose.Schema ({
   name: String,
   username: String,
@@ -39,6 +44,7 @@ const userSchema = new mongoose.Schema ({
 
 userSchema.plugin(passportLocalMongoose);
 
+const Share = mongoose.model("Share", shareSchema);
 const User = mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
@@ -88,10 +94,23 @@ app.post("/upload", upload.single("file"), function(req, res) {
   })();
 });
 
-app.get('/download', function(req, res){
-  const file = __dirname + "/storage/" + req.user.storage + "/" + req.query.filename;
-  console.log(file);
+app.get("/download", function(req, res) {
+  const file = __dirname + "/storage/" + req.userß.storage + "/" + req.query.filename;
   res.download(file);
+});
+
+app.post("/share", function(req, res) {
+  const share = new Share();
+  share.path = __dirname + "/storage/" + req.user.storage + "/" + req.body.filename;
+  share.author = req.user.name;
+  share.save();
+  res.status(200).send({url: "http://localhost:3000/sh/" + share._id.toString()});
+});
+
+app.get("/sh/:uid", function(req, res) {
+  Share.findById(req.params.uid, function(err, share) {
+    res.download(share.path);
+  });
 });
 
 app.post("/delete", function(req, res) {

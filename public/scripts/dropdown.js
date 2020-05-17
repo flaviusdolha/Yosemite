@@ -22,4 +22,11 @@ $(document).ready(function() {
     })
     .catch(() => alert('oh no!'));
   });
+
+  $(".share").click(function() {
+    console.log($(this).attr("alt"));
+    $.post("http://localhost:3000/share", {filename: $(this).attr("alt")}, function(response) {
+      $("#share-link").attr("value", response.url);
+    });
+  });
 });
