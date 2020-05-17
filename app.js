@@ -5,6 +5,11 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const { v4: uuidv4 } = require('uuid');
+const { exec } = require("child_process");
+const multer = require("multer");
+const fs = require("fs");
+const moveFile = require("move-file");
 
 const app = express();
 
@@ -39,6 +44,17 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './storage');
+     },
+    filename: function (req, file, cb) {
+        cb(null , file.originalname);
+    }
+});
+
+var upload = multer({storage: storage});
+
 app.get("/", function(req, res) {
   if (req.isAuthenticated()) {
     res.redirect("/s");
@@ -49,18 +65,27 @@ app.get("/", function(req, res) {
 
 app.get("/s", function(req, res) {
   if (req.isAuthenticated()) {
-    res.sendFile(__dirname +"/storage.html");
+    res.render("storage", {name: req.user.name, username: req.user.username});
   }
   else {
     res.redirect("/");
   }
 });
 
+app.post("/upload", upload.single("file"), function(req, res) {
+  (async () => {
+    await moveFile(__dirname + "/storage/" + req.file.filename, __dirname + "/storage/" + req.user.storage + "/" + req.file.filename);
+    res.send("complete");
+  })();
+});
+
 app.post("/register", function(req, res) {
-  User.register({name: req.body.name, username: req.body.username, storage: "a"} , req.body.password, function(err, user) {
+  uuid = uuidv4();
+  User.register({name: req.body.name, username: req.body.username, storage: uuid} , req.body.password, function(err, user) {
     if (err) {
        console.log(err)
     } else {
+      exec("mkdir storage/" + uuid);
       passport.authenticate("local")(req, res, function() {
         return res.status(200).send({result: 'redirect', url:'/s'})
       });

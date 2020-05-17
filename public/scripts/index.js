@@ -60,7 +60,7 @@ $(document).ready(function() {
     }
 
     if (inputIsOk) {
-      $.post("http://localhost:3000/register", {fullName: $("#registerName").val(), username: $("#registerEmail").val(), password: $("#registerPassword").val()}, function(response) {
+      $.post("http://localhost:3000/register", {name: $("#registerName").val(), username: $("#registerEmail").val(), password: $("#registerPassword").val()}, function(response) {
         if (response.result == "redirect") {
           window.location.replace(response.url);
         }

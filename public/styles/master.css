@@ -1,0 +1,252 @@
+.index-bg {
+  background-color: #010a43;
+}
+
+.storage-bg {
+  background-color: #d6e4f0;
+}
+
+.colour-light {
+  color: #f6f6f6;
+}
+
+.colour-dark-blue {
+  color: #010a43;
+}
+
+.colour-light-2 {
+  color: #d6e4f0;
+}
+
+.colour-yellow {
+  color: #ffe084;
+}
+
+.navbar-big {
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.brand-title {
+  font-size: 2.3rem;
+}
+
+.left-panel {
+  margin-left: 70px;
+  margin-top: 40px;
+}
+
+.motto {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 5rem;
+}
+
+.h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.under-motto {
+  margin-top: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.under-motto-2 {
+  margin-top: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.register {
+  margin: auto;
+  padding: 32px;
+  background-color: #f6f6f6;
+  height: 540px;
+  width: 80%;
+}
+
+.register-login-h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.register-login-label {
+  margin-top: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
+  color: #010a43;
+}
+
+.form-text {
+  margin-top: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  color: #010a43;
+}
+
+.register-login-button {
+  margin-top: 20px;
+  background-color: #010a43;
+}
+
+.register-login-button:hover {
+  background-color: #142850;
+}
+
+.register-login-button:focus, .register-login-button:active, .register-login-button::selection {
+  background-color: #010a43;
+}
+
+#alreadyRegister, #createAccount {
+  margin-top: 16px;
+}
+
+.footer-copyright {
+  margin-left: 70px;
+}
+
+.hide {
+  display: none;
+}
+
+.input-invalid {
+  border-color: red;
+}
+
+.text-invalid {
+  color: red;
+}
+
+.sidebar-info {
+  background-color: #010a43;
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.cpyright {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  position: absolute;
+  left: 5%;
+  bottom: 0px;
+}
+
+#logoutButton {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  position: absolute;
+  left: 5%;
+  bottom: 46px;
+}
+
+.subtitle {
+  position: absolute;
+  top: 80px;
+  margin-left: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.hello-name {
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.hello-name-name {
+  margin-left: 5%;
+  margin-top: -12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.connected-as {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  position: absolute;
+  left: 5%;
+  bottom: 72px;
+}
+
+.storage-used {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 32px;
+  margin-left: 5%;
+}
+
+.gb-used {
+  font-weight: 500;
+}
+
+.directory {
+  display: inline-block;
+  margin-left: 70px;
+  margin-top: 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+#uploadButton {
+  margin-left: auto;
+  float: right;
+  margin-right: 22%;
+  margin-top: 32px;
+}
+
+#uploadButton, #uploadButton:focus, #uploadButton:active {
+  background-color: #010a43;
+  border-color: #010a43;
+}
+
+#uploadButton:hover {
+  background-color: #142850;
+}
+
+.fas {
+  margin-right: 12px;
+}
+
+hr {
+  margin-top: 32px;
+  margin-left: 70px;
+  margin-right: 22%;
+  margin-bottom: 0;
+}
+
+.list-group {
+  margin-left: 70px;
+  margin-right: 22%;
+}
+
+.list-group-item {
+  padding-left: 0;
+  color: #010a43;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.delete {
+  float:right;
+  color: #010a43;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-right: 0;
+}
