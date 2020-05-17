@@ -25,7 +25,7 @@ mongoose.connect("mongodb://localhost:27017/Yosemite", { useNewUrlParser: true, 
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
-  fullName: String,
+  name: String,
   username: String,
   password: String,
   storage: String
@@ -57,7 +57,7 @@ app.get("/s", function(req, res) {
 });
 
 app.post("/register", function(req, res) {
-  User.register({fullName: req.body.fullName, username: req.body.username, storage: "a"} , req.body.password, function(err, user) {
+  User.register({name: req.body.name, username: req.body.username, storage: "a"} , req.body.password, function(err, user) {
     if (err) {
        console.log(err)
     } else {
