@@ -85,4 +85,9 @@ app.post("/login", function(req, res) {
   });
 });
 
+app.get("/logout", function(req, res) {
+  req.logout();
+  return res.status(200).send({result: 'redirect', url:'/'})
+});
+
 app.listen(PORT);
