@@ -24,17 +24,30 @@
 
     <h4 class="directory colour-dark-blue">HOME</h4>
 
-    <label class="btn btn-primary" id="uploadButton"><i class="fas fa-file-upload" ></i>Upload
+    <label class="btn btn-primary" id="uploadButton"><span class="spinner-border spinner-border-sm hide" id="up-spinner" role="status" aria-hidden="true"></span><i class="fas fa-file-upload" id="up-icon"></i>Upload
     <input type="file" name="file" hidden id="uploadInput"></label>
 
     <hr />
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i>Cras justo odio<span class="float-right"><i class="far fa-ellipsis-h fa-lg"></i></span></li>
-      <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i>Dapibus ac facilisis in<span class="float-right"><i class="far fa-ellipsis-h fa-lg"></i></span></li>
-      <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i>Morbi leo risus<span class="float-right"><i class="far fa-ellipsis-h fa-lg"></i></span></li>
-      <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i>Porta ac consectetur ac<span class="float-right"><i class="far fa-ellipsis-h fa-lg"></i></span></li>
-      <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i>Vestibulum at eros<span class="float-right"><i class="far fa-ellipsis-h fa-lg"></i></span></li>
-    </ul>
+    <% if (fileLength > 0) { %>
+      <ul class="list-group list-group-flush">
+      <% for (var i = 0; i < fileLength; i++) { %>
+        <li class="list-group-item list-group-item-action"><i class="fas fa-file fa-2x"></i><%= fileNames[i] %>
+          <div class="dropdown float-right">
+            <button class="btn btn-secondary dropdown-toggle btn-sm moreButton" type="button" id="moreButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#" alt="<%= fileNames[i] %>">Download</a>
+              <a class="dropdown-item" href="#" alt="<%= fileNames[i] %>">Share</a>
+              <a class="dropdown-item delete" href="#" alt="<%= fileNames[i] %>">Delete</a>
+            </div>
+          </div>
+        </li>
+      <% } %>
+      </ul>
+    <% } else { %>
+      <h4 class="no-files colour-dark-blue">There are no files in your storage. Start by uploading one.</h4>
+    <% } %>
 
     <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Action</a>
@@ -49,7 +62,17 @@
         <h2 class="hello-name colour-yellow">Hello,</h2>
         <h2 class="hello-name-name colour-yellow"><%= name %></h2>
       </div>
-        <h4 class="storage-used colour-light-2">Storage used: <span class="gb-used">24.06GB</span></h4>
+        <h4 class="storage-used colour-light-2">Storage used: <span class="gb-used">
+          <% if (size > 1024 * 1024 * 1024) { %>
+            <%= (size / (1024 * 1024 * 1024)).toFixed(1) %> GB
+          <% } else if (size > 1024 * 1024) { %>
+            <%= (size / (1024 * 1024)).toFixed(1) %> MB
+          <% } else if (size > 1024) { %>
+            <%= (size / 1024).toFixed(1) %> KB
+          <% } else { %>
+            <%= size.toFixed(1) %> B
+          <% } %>
+        </span></h4>
         <small class="connected-as colour-light-2">(Connected as: <%= username %>)</small>
         <a href="#" id="logoutButton" class="colour-yellow">Logout</a>
         <div class="cpyright py-3 colour-light-2">Copyright © 2020: Flavius Dolha
@@ -61,5 +84,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="scripts/logout.js"></script>
     <script src="scripts/uploadFiles.js"></script>
+    <script src="scripts/dropdown.js"></script>
   </body>
 </html>

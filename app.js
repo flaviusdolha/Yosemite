@@ -10,6 +10,7 @@ const { exec } = require("child_process");
 const multer = require("multer");
 const fs = require("fs");
 const moveFile = require("move-file");
+const getSize = require('get-folder-size');
 
 const app = express();
 
@@ -65,7 +66,15 @@ app.get("/", function(req, res) {
 
 app.get("/s", function(req, res) {
   if (req.isAuthenticated()) {
-    res.render("storage", {name: req.user.name, username: req.user.username});
+    const userStorageFolder = "./storage/" + req.user.storage + "/";
+    fs.readdir(userStorageFolder, function(err, files) {
+      if (!err)
+      {
+        getSize(userStorageFolder, function(err, size) {
+          res.render("storage", {name: req.user.name, username: req.user.username, fileLength: files.length, fileNames: files, size: size});
+        });
+      }
+    });
   }
   else {
     res.redirect("/");
@@ -75,8 +84,20 @@ app.get("/s", function(req, res) {
 app.post("/upload", upload.single("file"), function(req, res) {
   (async () => {
     await moveFile(__dirname + "/storage/" + req.file.filename, __dirname + "/storage/" + req.user.storage + "/" + req.file.filename);
-    res.send("complete");
+    return res.status(200).send({result: 'redirect', url:'/s'})
   })();
+});
+
+app.post("/delete", function(req, res) {
+  if (req.isAuthenticated()) {
+    const userStorageFolder = "./storage/" + req.user.storage + "/";
+    fs.unlink(userStorageFolder + req.body.filename, function(err) {
+      return res.status(200).send({result: 'redirect', url:'/s'})
+    });
+  }
+  else {
+    res.redirect("/");
+  }
 });
 
 app.post("/register", function(req, res) {
