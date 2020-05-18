@@ -256,8 +256,8 @@ hr {
   font-weight: 400;
 }
 
-.delete {
-  float:right;
+.more-button {
+  float: right;
   color: #010a43;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;

@@ -30,16 +30,16 @@ const PORT = 3000;
 mongoose.connect("mongodb://localhost:27017/Yosemite", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
-const shareSchema = new mongoose.Schema ({
-  path: String,
-  author: String,
-});
-
 const userSchema = new mongoose.Schema ({
   name: String,
   username: String,
   password: String,
   storage: String
+});
+
+const shareSchema = new mongoose.Schema ({
+  path: String,
+  author: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
