@@ -25,9 +25,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const URL  = process.env.MONGODB_URL || "mongodb://localhost:27017/Yosemite";
 
-mongoose.connect("mongodb://localhost:27017/Yosemite", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
