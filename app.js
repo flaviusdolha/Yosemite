@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const PORT = process.env.PORT || 3000;
-const URL  = process.env.MONGODB_URL || "mongodb://localhost:27017/Yosemite";
+const URL  = process.env.MONGODB_URL || "mongodb+srv://yosemiteadmin:yosemitepassword@yosemite.6rn6p.mongodb.net/Yosemite?retryWrites=true&w=majority";
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
