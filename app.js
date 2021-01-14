@@ -151,7 +151,7 @@ app.post("/login", function(req, res) {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function() {
-        return res.status(200).send({result: 'redirect', url:'/s'})
+        return res.status(200).send({result: 'redirect', url:'https://yosemite-fd.herokuapp.com/s'})
       });
     }
   });
