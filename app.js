@@ -112,7 +112,7 @@ app.post("/share", function(req, res) {
   share.path = __dirname + "/storage/" + req.user.storage + "/" + req.body.filename;
   share.author = req.user.name;
   share.save();
-  res.status(200).send({url: "https://yosemite-fd.herokuapp.com/sh/" + share._id.toString()});
+  res.status(200).send({url: "/sh/" + share._id.toString()});
 });
 
 app.get("/sh/:uid", function(req, res) {
@@ -158,7 +158,7 @@ app.post("/login", function(req, res) {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function() {
-        return res.status(200).send({result: 'redirect', url:'https://yosemite-fd.herokuapp.com/s'})
+        return res.status(200).send({result: 'redirect', url:'/s'})
       });
     }
   });
