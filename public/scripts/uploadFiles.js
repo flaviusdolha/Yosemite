@@ -14,6 +14,6 @@ $("#uploadInput").on("change", function() {
         }
   };
 
-  xhr.open("post", "http://localhost:3000/upload");
+  xhr.open("post", "https://yosemite-fd.herokuapp.com/upload");
   xhr.send(formData);
 });

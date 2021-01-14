@@ -60,7 +60,7 @@ $(document).ready(function() {
     }
 
     if (inputIsOk) {
-      $.post("http://localhost:3000/register", {name: $("#registerName").val(), username: $("#registerEmail").val(), password: $("#registerPassword").val()}, function(response) {
+      $.post("https://yosemite-fd.herokuapp.com/register", {name: $("#registerName").val(), username: $("#registerEmail").val(), password: $("#registerPassword").val()}, function(response) {
         if (response.result == "redirect") {
           window.location.replace(response.url);
         }
@@ -69,7 +69,7 @@ $(document).ready(function() {
   });
 
   $("#loginButton").click(function() {
-    $.post("http://localhost:3000/login", {username: $("#loginEmail").val(), password: $("#loginPassword").val()}, function(response) {
+    $.post("https://yosemite-fd.herokuapp.com/login", {username: $("#loginEmail").val(), password: $("#loginPassword").val()}, function(response) {
       if (response.result == "redirect") {
         window.location.replace(response.url);
       }

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $(".delete").click(function() {
-    $.post("http://localhost:3000/delete", {filename: $(this).attr("alt")}, function(response) {
+    $.post("https://yosemite-fd.herokuapp.com/delete", {filename: $(this).attr("alt")}, function(response) {
       if (response.result == "redirect") {
         window.location.replace(response.url);
     }
@@ -9,7 +9,7 @@ $(document).ready(function() {
   });
 
   $(".download").click(function() {
-    fetch('http://localhost:3000/download?filename=' + $(this).attr("alt"))
+    fetch('https://yosemite-fd.herokuapp.com/download?filename=' + $(this).attr("alt"))
     .then(resp => resp.blob())
     .then(blob => {
       const url = window.URL.createObjectURL(blob);
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
   $(".share").click(function() {
     console.log($(this).attr("alt"));
-    $.post("http://localhost:3000/share", {filename: $(this).attr("alt")}, function(response) {
+    $.post("https://yosemite-fd.herokuapp.com/share", {filename: $(this).attr("alt")}, function(response) {
       $("#share-link").attr("value", response.url);
     });
   });
