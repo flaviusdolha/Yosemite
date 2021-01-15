@@ -14,6 +14,6 @@ $("#uploadInput").on("change", function() {
         }
   };
 
-  xhr.open("post", "https://yosemite-fd.herokuapp.com/upload");
+  xhr.open("post", "https://yosemite-fs.azurewebsites.net/upload");
   xhr.send(formData);
 });
