@@ -14,6 +14,13 @@ const getSize = require('get-folder-size');
 
 const app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});
 app.use(express.static('public'));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended:true }));
@@ -24,13 +31,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  next();
-});
 
 const PORT = process.env.PORT || 3000;
 const URL  = process.env.MONGODB_URL || "mongodb+srv://yosemiteadmin:yosemitepassword@yosemite.6rn6p.mongodb.net/Yosemite?retryWrites=true&w=majority";
